@@ -8,11 +8,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 const Stack = createStackNavigator();
 
-<StatusBar
-  backgroundColor="#fff"
-  barStyle="dark-content" // Here is where you change the font-color
-/>;
-
 const globalOptions = {
   headerStyle: { backgroundColor: "#2C6BED" },
   headerTitleStyle: { color: "white", alignSelf: "center" },
@@ -22,6 +17,7 @@ const globalOptions = {
 export default function App() {
   return (
     <NavigationContainer>
+      <StatusBar style="light" />
       <Stack.Navigator screenOptions={globalOptions}>
         <Stack.Screen name="Login" component={LoginScreen} />
       </Stack.Navigator>

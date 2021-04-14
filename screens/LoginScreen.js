@@ -1,32 +1,75 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
+import { KeyboardAvoidingView, StyleSheet, Text, View } from "react-native";
 import { Button, Input, Image } from "react-native-elements";
 import { StatusBar } from "expo-status-bar";
 
 const LoginScreen = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   return (
-    <View style={styles.con}>
+    <KeyboardAvoidingView style={styles.main}>
       <StatusBar style="light" />
+      <View style={{ height: 40 }}></View>
       <Image
         source={{
           uri:
-            "https://blog.mozilla.org/internetcitzen/files/2018/08/signal-logo.png",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Signal-Logo.svg/600px-Signal-Logo.svg.png",
         }}
-        style={{ height: 200, width: 200 }}
+        style={{ height: 150, width: 150, borderRadius: 20 }}
       />
-    </View>
+
+      <View style={styles.inpCon}>
+        <Input
+          placeholder="Email"
+          autoFocus
+          type="email"
+          autoCapitalize="none"
+          value={email}
+          onChangeText={(text) => setEmail(text)}
+        />
+
+        <Input
+          placeholder="Password"
+          secureTextEntry
+          autoCapitalize="none"
+          type="password"
+          value={password}
+          onChangeText={(text) => setPassword(text)}
+        />
+      </View>
+
+      <Button
+        containerStyle={styles.btn}
+        title="Login"
+        onPress={() => alert("Login")}
+      />
+      <View style={{ height: 5 }}></View>
+      <Text style={{ alignSelf: "center" }}>or</Text>
+      <Button
+        containerStyle={styles.btn}
+        type="outline"
+        title="SignUp"
+        onPress={() => alert("Sign Up")}
+      />
+      <View style={{ height: 100 }}></View>
+    </KeyboardAvoidingView>
   );
 };
 
 export default LoginScreen;
 
 const styles = StyleSheet.create({
-  head: {
-    fontSize: 24,
-  },
-  con: {
+  main: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+  },
+
+  btn: {
+    width: 200,
+    marginTop: 10,
+  },
+  inpCon: {
+    width: 300,
   },
 });
