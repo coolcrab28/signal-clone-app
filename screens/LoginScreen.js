@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { KeyboardAvoidingView, StyleSheet, Text, View } from "react-native";
 import { Button, Input, Image } from "react-native-elements";
 import { StatusBar } from "expo-status-bar";
@@ -6,8 +6,24 @@ import { StatusBar } from "expo-status-bar";
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerStyle: { backgroundColor: "#2c96ed" },
+      headerTitleStyle: {
+        color: "white",
+        alignSelf: "center",
+      },
+      headerTintColor: "white",
+    });
+  }, [navigation]);
+
+  const login = () => {
+    alert("yo");
+  };
+
   return (
-    <KeyboardAvoidingView style={styles.main}>
+    <KeyboardAvoidingView behavior="padding" style={styles.main}>
       <StatusBar style="light" />
       <View style={{ height: 40 }}></View>
       <Image
@@ -17,11 +33,10 @@ const LoginScreen = ({ navigation }) => {
         }}
         style={{ height: 150, width: 150, borderRadius: 20 }}
       />
-
+      <View style={{ height: 20 }}></View>
       <View style={styles.inpCon}>
         <Input
           placeholder="Email"
-          autoFocus
           type="email"
           autoCapitalize="none"
           value={email}
@@ -35,6 +50,7 @@ const LoginScreen = ({ navigation }) => {
           type="password"
           value={password}
           onChangeText={(text) => setPassword(text)}
+          onSubmitEditing={login}
         />
       </View>
 
@@ -42,13 +58,16 @@ const LoginScreen = ({ navigation }) => {
         containerStyle={styles.btn}
         title="Login"
         onPress={() => alert("Login")}
+        buttonStyle={{
+          backgroundColor: "#2c96ed",
+        }}
       />
       <View style={{ height: 5 }}></View>
       <Text style={{ alignSelf: "center" }}>or</Text>
       <Button
         containerStyle={styles.btn}
         type="outline"
-        title="SignUp"
+        title="Register"
         onPress={() => navigation.navigate("Register")}
       />
       <View style={{ height: 100 }}></View>
