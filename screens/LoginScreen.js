@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { KeyboardAvoidingView, StyleSheet, Text, View } from "react-native";
 import { Button, Input, Image } from "react-native-elements";
 import { StatusBar } from "expo-status-bar";
@@ -18,6 +18,15 @@ const LoginScreen = ({ navigation }) => {
       headerTintColor: "white",
     });
   }, [navigation]);
+
+  useEffect(() => {
+    const unsub = auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        navigation.replace("Home");
+      }
+    });
+    return unsub;
+  }, []);
 
   const login = () => {
     auth

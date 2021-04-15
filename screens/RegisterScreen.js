@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { KeyboardAvoidingView } from "react-native";
 import { StyleSheet, View } from "react-native";
 import { Text, Input, Button } from "react-native-elements";
@@ -22,10 +22,25 @@ const RegisterScreen = ({ navigation }) => {
     });
   }, [navigation]);
 
+  useEffect(() => {
+    const unsub = auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        navigation.replace("Home");
+      }
+    });
+    return unsub;
+  }, []);
+
   const register = () => {
     auth
       .createUserWithEmailAndPassword(email, password)
-      .then()
+      .then((authUser) => {
+        authUser.user.updateProfile({
+          displayName: name,
+          photoURL: "",
+        });
+      })
+
       .catch((error) => {
         alert(error.message);
       });
