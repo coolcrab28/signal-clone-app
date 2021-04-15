@@ -23,11 +23,12 @@ const RegisterScreen = ({ navigation }) => {
   }, [navigation]);
 
   const register = () => {
-    alert("yo");
     auth
       .createUserWithEmailAndPassword(email, password)
-      .then(alert("Done"))
-      .catch((error) => alert(error.message));
+      .then()
+      .catch((error) => {
+        alert(error.message);
+      });
   };
 
   return (

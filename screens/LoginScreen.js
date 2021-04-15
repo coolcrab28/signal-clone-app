@@ -2,6 +2,7 @@ import React, { useLayoutEffect, useState } from "react";
 import { KeyboardAvoidingView, StyleSheet, Text, View } from "react-native";
 import { Button, Input, Image } from "react-native-elements";
 import { StatusBar } from "expo-status-bar";
+import { auth } from "../firebase";
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -19,7 +20,12 @@ const LoginScreen = ({ navigation }) => {
   }, [navigation]);
 
   const login = () => {
-    alert("yo");
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then()
+      .catch((error) => {
+        alert(error.message);
+      });
   };
 
   return (
@@ -57,7 +63,7 @@ const LoginScreen = ({ navigation }) => {
       <Button
         containerStyle={styles.btn}
         title="Login"
-        onPress={() => alert("Login")}
+        onPress={login}
         buttonStyle={{
           backgroundColor: "#2c96ed",
         }}
