@@ -13,9 +13,14 @@ const CustomListItem = () => {
       />
 
       <ListItem.Content>
-        <ListItem.Title style={{ fontSize: 10, fontWeight: "900" }}>
-          <Text h3>hi</Text>
+        <ListItem.Title style={{ fontSize: 20, fontWeight: "900" }}>
+          <Text>My Chat</Text>
         </ListItem.Title>
+        <ListItem.Subtitle numberOfLines={1} ellipsizeMode="tail">
+          this is a test message . this is just to make it very very long and even longer!!
+          bbv
+          bvbvddddddddddddddddddddddddddddddddddddddddddddddddddd
+        </ListItem.Subtitle>
       </ListItem.Content>
     </ListItem>
   );

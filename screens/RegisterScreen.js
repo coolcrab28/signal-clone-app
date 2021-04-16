@@ -39,6 +39,7 @@ const RegisterScreen = ({ navigation }) => {
           displayName: name,
           photoURL: "",
         });
+        navigation.replace("Home")
       })
 
       .catch((error) => {

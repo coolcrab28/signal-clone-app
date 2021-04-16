@@ -39,7 +39,7 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <KeyboardAvoidingView behavior="padding" style={styles.main}>
-      <StatusBar style="light" />
+      <StatusBar style="light" color="#2c96ed" />
       <View style={{ height: 40 }}></View>
       <Image
         source={{
