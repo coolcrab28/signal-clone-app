@@ -1,9 +1,9 @@
 import React from "react";
 import { ListItem, Avatar, Text } from "react-native-elements";
 
-const CustomListItem = () => {
+const CustomListItem = ({ id, chatName, enterChat }) => {
   return (
-    <ListItem>
+    <ListItem key={id} bottomDivider>
       <Avatar
         rounded
         source={{
@@ -14,12 +14,10 @@ const CustomListItem = () => {
 
       <ListItem.Content>
         <ListItem.Title style={{ fontSize: 20, fontWeight: "900" }}>
-          <Text>My Chat</Text>
+          {chatName}
         </ListItem.Title>
         <ListItem.Subtitle numberOfLines={1} ellipsizeMode="tail">
-          this is a test message . this is just to make it very very long and even longer!!
-          bbv
-          bvbvddddddddddddddddddddddddddddddddddddddddddddddddddd
+          ABC
         </ListItem.Subtitle>
       </ListItem.Content>
     </ListItem>
