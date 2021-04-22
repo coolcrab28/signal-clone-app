@@ -40,7 +40,7 @@ const ChatScreen = ({ navigation, route }) => {
                 margin: 10,
               }}
             />
-            <TouchableOpacity activeOpacity={0.5} onPress={() => sendMessage}>
+            <TouchableOpacity activeOpacity={0.5} onPress={sendMessage}>
               <Ionicons name="send" size={24} color="#2b68e6" />
             </TouchableOpacity>
           </View>
