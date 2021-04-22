@@ -32,7 +32,13 @@ const ChatScreen = ({ navigation, route }) => {
               placeholder="Enter a message"
               value={input}
               onChangeText={(text) => setInput(text)}
-              style={styles.inp}
+              style={{
+                flex: 1,
+                padding: 10,
+                outline: "none",
+                backgroundColor: "#ececec",
+                margin: 10,
+              }}
             />
             <TouchableOpacity activeOpacity={0.5} onPress={() => sendMessage}>
               <Ionicons name="send" size={24} color="#2b68e6" />
@@ -53,7 +59,6 @@ const styles = StyleSheet.create({
     width: "100%",
     padding: 15,
   },
-  inp: {},
   con: {
     flex: 1,
   },
