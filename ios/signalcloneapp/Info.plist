@@ -52,8 +52,6 @@
     <false/>
     <key>UIStatusBarStyle</key>
     <string>UIStatusBarStyleDefault</string>
-    <key>UIUserInterfaceStyle</key>
-    <string>Light</string>
     <key>CFBundleURLTypes</key>
     <array>
       <dict>
@@ -65,6 +63,8 @@
     </array>
     <key>UIRequiresFullScreen</key>
     <true/>
+    <key>UIUserInterfaceStyle</key>
+    <string>Light</string>
     <key>CFBundleDisplayName</key>
     <string>signal-clone-app</string>
   </dict>

@@ -32,19 +32,22 @@ const RegisterScreen = ({ navigation }) => {
   }, []);
 
   const register = () => {
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((authUser) => {
-        authUser.user.updateProfile({
-          displayName: name,
-          photoURL: "",
-        });
-        navigation.replace("Home")
-      })
-
-      .catch((error) => {
-        alert(error.message);
-      });
+    if (name === "" || email === "" || password === "" || conpass === "") {
+      alert("Please fill in all the inputs");
+    } else {
+      //   auth
+      //     .createUserWithEmailAndPassword(email, password)
+      //     .then((authUser) => {
+      //       authUser.user.updateProfile({
+      //         displayName: name,
+      //         photoURL: "",
+      //       });
+      //       navigation.replace("Home");
+      //     })
+      //     .catch((error) => {
+      //       alert(error.message);
+      //     });
+    }
   };
 
   return (
@@ -56,6 +59,8 @@ const RegisterScreen = ({ navigation }) => {
           placeholder="Name"
           type="text"
           autoCapitalize="none"
+          style={{ outline: "none" }}
+          spellCheck="false"
           value={name}
           onChangeText={(text) => setName(text)}
         />
@@ -63,6 +68,8 @@ const RegisterScreen = ({ navigation }) => {
           placeholder="Email"
           type="email"
           autoCapitalize="none"
+          spellCheck="false"
+          style={{ outline: "none" }}
           value={email}
           onChangeText={(text) => setEmail(text)}
         />
@@ -71,6 +78,8 @@ const RegisterScreen = ({ navigation }) => {
           placeholder="Password"
           type="password"
           autoCapitalize="none"
+          spellCheck="false"
+          style={{ outline: "none" }}
           secureTextEntry
           value={password}
           onChangeText={(text) => setPassword(text)}
@@ -80,6 +89,8 @@ const RegisterScreen = ({ navigation }) => {
           placeholder="Confirm Password"
           type="password"
           autoCapitalize="none"
+          spellCheck="false"
+          style={{ outline: "none" }}
           secureTextEntry
           value={conpass}
           onChangeText={(text) => setConPass(text)}
