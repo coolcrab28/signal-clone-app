@@ -9,7 +9,11 @@ import { AntDesign, SimpleLineIcons } from "@expo/vector-icons";
 import { Dimensions } from "react-native";
 
 const HomeScreen = ({ navigation }) => {
-  const userName = auth.currentUser.displayName;
+  var userName = "";
+  // auth.currentUser.displayName;
+  if (Dimensions.get("window").width > 300) {
+    userName = auth.currentUser.displayName;
+  }
   useLayoutEffect(() => {
     navigation.setOptions({
       title: "Signal",
