@@ -35,18 +35,18 @@ const RegisterScreen = ({ navigation }) => {
     if (name === "" || email === "" || password === "" || conpass === "") {
       alert("Please fill in all the inputs");
     } else {
-      //   auth
-      //     .createUserWithEmailAndPassword(email, password)
-      //     .then((authUser) => {
-      //       authUser.user.updateProfile({
-      //         displayName: name,
-      //         photoURL: "",
-      //       });
-      //       navigation.replace("Home");
-      //     })
-      //     .catch((error) => {
-      //       alert(error.message);
-      //     });
+      auth
+        .createUserWithEmailAndPassword(email, password)
+        .then((authUser) => {
+          authUser.user.updateProfile({
+            displayName: name,
+            photoURL: "",
+          });
+          navigation.replace("Home");
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
     }
   };
 
