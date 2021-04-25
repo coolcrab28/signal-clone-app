@@ -1,5 +1,6 @@
 import React from "react";
-import { ListItem, Avatar, Text } from "react-native-elements";
+import { StyleSheet } from "react-native";
+import { ListItem, Avatar } from "react-native-elements";
 
 const CustomListItem = ({ id, chatName, enterChat }) => {
   return (
@@ -20,10 +21,7 @@ const CustomListItem = ({ id, chatName, enterChat }) => {
       />
 
       <ListItem.Content>
-        <ListItem.Title
-          style={{ fontSize: 20, fontWeight: "900" }}
-          numberOfLines={1}
-        >
+        <ListItem.Title style={styles.t} numberOfLines={1}>
           {chatName}
         </ListItem.Title>
         <ListItem.Subtitle numberOfLines={1} ellipsizeMode="tail">
@@ -34,4 +32,7 @@ const CustomListItem = ({ id, chatName, enterChat }) => {
   );
 };
 
+const styles = StyleSheet.create({
+  t: { fontSize: 20, fontWeight: "700" },
+});
 export default CustomListItem;

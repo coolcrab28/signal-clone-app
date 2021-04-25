@@ -34,6 +34,8 @@ const RegisterScreen = ({ navigation }) => {
   const register = () => {
     if (name === "" || email === "" || password === "" || conpass === "") {
       alert("Please fill in all the inputs");
+    } else if (password != conpass) {
+      alert("Passwords do not match!");
     } else {
       auth
         .createUserWithEmailAndPassword(email, password)

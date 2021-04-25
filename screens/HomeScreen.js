@@ -2,15 +2,14 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 import { ScrollView, SafeAreaView, TouchableOpacity } from "react-native";
 import CustomListItem from "../components/CustomListItem";
 import { StatusBar } from "expo-status-bar";
-import { View, Text, Button } from "react-native";
+import { View, Text } from "react-native";
 import { Avatar } from "react-native-elements";
 import { auth, db } from "../firebase";
-import { AntDesign, SimpleLineIcons } from "@expo/vector-icons";
+import { SimpleLineIcons } from "@expo/vector-icons";
 import { Dimensions } from "react-native";
 
 const HomeScreen = ({ navigation }) => {
   var userName = "";
-  // auth.currentUser.displayName;
   if (Dimensions.get("window").width > 300) {
     userName = auth.currentUser.displayName;
   }
@@ -51,7 +50,6 @@ const HomeScreen = ({ navigation }) => {
         color: "black",
         alignSelf: "center",
       },
-      // headerTintColor: "black",
     });
   }, [navigation]);
 
